@@ -41,7 +41,6 @@ def length_and_value(a,b):
     arr=[]
     for x in range (0,a):
         arr.append(b)
-        x+=1
     return arr
 print(length_and_value(4,7))
 print(length_and_value(6,2))
