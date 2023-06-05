@@ -14,16 +14,17 @@ class User:
          print(f"Points: {self.gold_card_points}")
          print("------")
     def enroll(self):
-        if self.is_rewards_member == True:
-            print("User already a member")
+        if self.is_rewards_member:
+            print("User already a member") 
             return False
+            # make sure put the if statement at the top or it will reset the points
         self.is_rewards_member = True
         self.gold_card_points = 200
     def spend_points(self, amount):
-        self.gold_card_points = self.gold_card_points - amount
         if amount > self.gold_card_points:
             print("You don't have enough points")
             return
+        self.gold_card_points = self.gold_card_points - amount
 
          
 
