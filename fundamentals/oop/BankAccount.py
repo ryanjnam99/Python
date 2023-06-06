@@ -45,7 +45,7 @@ class User:
     def transfer_money(self, amount, other_user):
         self.other_user = other_user
         self.account.balance -= amount
-        other_user.account.balance += amount
+        self.other_user.account.balance += amount
         print("Transaction complete")
         print(self.account.balance)
         print(self.other_user.account.balance)
@@ -63,4 +63,4 @@ joon = User("Ryan", "ryanjnam@yahoo.com")
 joon.make_deposit(200).make_deposit(3029).make_withdrawal(922).display_user_balance()
 charles = User ("Charles", "cnammd@yahoo.com")
 charles.make_deposit(3000).display_user_balance()
-joon.transfer_money(200, charles)
+joon.transfer_money(200, charles).transfer_money(500, charles)
