@@ -22,7 +22,7 @@ class BankAccount:
     def yield_interest(self):
         if self.balance <= 0:
             print("Sorry your balance is currently empty")
-        self.balance + (self.int_rate * self.balance)
+        self.balance += (self.int_rate * self.balance)
         return self
 
 class User:
@@ -42,6 +42,14 @@ class User:
     def display_user_balance(self):
         print(self.account.balance)
         return self
+    def transfer_money(self, amount, other_user):
+        self.other_user = other_user
+        self.account.balance -= amount
+        other_user.account.balance += amount
+        print("Transaction complete")
+        print(self.account.balance)
+        print(self.other_user.account.balance)
+        return self
 
 # ryan = BankAccount(0.05, 400)
 
@@ -53,3 +61,6 @@ class User:
 
 joon = User("Ryan", "ryanjnam@yahoo.com")
 joon.make_deposit(200).make_deposit(3029).make_withdrawal(922).display_user_balance()
+charles = User ("Charles", "cnammd@yahoo.com")
+charles.make_deposit(3000).display_user_balance()
+joon.transfer_money(200, charles)
