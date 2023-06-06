@@ -22,15 +22,34 @@ class BankAccount:
     def yield_interest(self):
         if self.balance <= 0:
             print("Sorry your balance is currently empty")
-        self.balance += (self.int_rate * self.balance)
+        self.balance + (self.int_rate * self.balance)
         return self
 
+class User:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+        self.account = BankAccount(int_rate=0.05, balance=0)
+    
+    # other methods
+    
+    def make_deposit(self, amount):
+        self.account.deposit(amount)
+        return self
+    def make_withdrawal(self, amount):
+        self.account.withdraw(amount)
+        return self
+    def display_user_balance(self):
+        print(self.account.balance)
+        return self
 
-ryan = BankAccount(0.05, 400)
+# ryan = BankAccount(0.05, 400)
 
-charles = BankAccount(0.01, 5600)
+# charles = BankAccount(0.01, 74328)
 
-ryan.deposit(300).deposit(300).deposit(300).withdraw(800).yield_interest().display_account_info()
+# ryan.deposit(300).deposit(300).deposit(300).withdraw(800).yield_interest().display_account_info()
 
-charles.deposit(8302).deposit(45932).withdraw(10000).withdraw(453).yield_interest().display_account_info()
+# charles.deposit(8302).deposit(45932).withdraw(10000).withdraw(453).yield_interest().display_account_info()
 
+joon = User("Ryan", "ryanjnam@yahoo.com")
+joon.make_deposit(200).make_deposit(3029).make_withdrawal(922).display_user_balance()
