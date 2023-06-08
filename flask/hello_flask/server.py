@@ -9,11 +9,18 @@ app = Flask(__name__)    # Create a new instance of the Flask class called "app"
 def index():
     return render_template("index.html", phrase="ryan", times=5)	# notice the 2 new named arguments!
 
+@app.route('/play')
+def box():
+    return render_template("playground1.html")
 
+@app.route('/play/<int:num>')
+def multiply(num):
+    num
+    return render_template("playground2.html", times=num)
+    
 @app.route('/play/<int:num>/<color>')
 def play(num, color):
-    sum = num
-    return render_template("playground.html", times=sum, color=color)
+    return render_template("playground3.html", times=num, color=color)
 # This is the code for playground assignment
 
     
