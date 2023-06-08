@@ -1,0 +1,28 @@
+td{
+    height: 40px;
+    width: 125px;
+    text-align: center;
+    border-bottom: 0.5px solid grey;
+    font-family:  sans-serif;
+    padding-top: 15px;
+}
+
+th {
+    height: 40px;
+    width: 125px;
+    text-align: center;
+    border-bottom: 0.5px solid grey;
+    font-weight: bold;
+    font-family:sans-serif;
+    background-color: rgb(50, 47, 47);
+    color: rgb(208, 165, 23);
+    padding-top: 15px;
+}
+tr {
+    display: flex;
+}
+
+table {
+    margin-top: 10px;
+    margin-left: 200px;
+}

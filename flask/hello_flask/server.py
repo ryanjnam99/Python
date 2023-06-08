@@ -5,9 +5,9 @@ app = Flask(__name__)    # Create a new instance of the Flask class called "app"
 #     return 'Hello World!'  # Return the string 'Hello World!' as a response
 
 
-@app.route('/')
-def index():
-    return render_template("index.html", phrase="ryan", times=5)	# notice the 2 new named arguments!
+# @app.route('/')
+# def index():
+#     return render_template("index.html", phrase="ryan", times=5)	# notice the 2 new named arguments!
 
 @app.route('/play')
 def box():
@@ -29,6 +29,31 @@ def play(num, color):
 @app.route('/<int:x>/<int:y>/<color1>/<color2>')
 def row_col_two(x,y,color1,color2):
     return render_template("checkerboard.html",row=x,col=y,color_one=color1,color_two=color2)
+
+
+@app.route('/lists')
+def render_lists():
+    # Soon enough, we'll get data from a database, but for now, we're hard coding data
+    student_info = [
+       {'name' : 'Michael', 'age' : 35},
+       {'name' : 'John', 'age' : 30 },
+       {'name' : 'Mark', 'age' : 25},
+       {'name' : 'KB', 'age' : 27}
+    ]
+    return render_template("lists.html", random_numbers = [3,1,5], students = student_info)
+
+@app.route('/')
+def users():
+    users = [
+        {'first_name' : 'Michael', 'last_name' : 'Choi'},
+        {'first_name' : 'John', 'last_name' : 'Supsupin'},
+        {'first_name' : 'Mark', 'last_name' : 'Guillen'},
+        {'first_name' : 'KB', 'last_name' : 'Tonel'}
+        ]
+    return render_template("users.html", user = users)
+
+# This is the assignment for html tables
+
     
 # @app.route('/success')
 # def success():
