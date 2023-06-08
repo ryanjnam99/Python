@@ -31,15 +31,15 @@ class Ninja:
         self.pet = pet
     def walk(self):
         self.pet.play()
-        print(f"{self.first_name} takes the {self.pet} out for a walk.")
+        print(f"{self.first_name} takes the {self.pet.name} out for a walk.")
         return self
     def feed(self):
         self.pet.eat()
-        print(f"{self.first_name} feeds the {self.pet} {self.treats}.")
+        print(f"{self.first_name} feeds the {self.pet.name} {self.treats}.")
         return self
     def bathe(self):
         self.pet.noise()
-        print(f"{self.first_name} bathes the {self.pet}.")
+        print(f"{self.first_name} bathes the {self.pet.name}.")
         return self
 
 
