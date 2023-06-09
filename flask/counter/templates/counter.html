@@ -9,7 +9,7 @@
 <body>
     <h1>Counter</h1>
     <p>{{session['counter']}} Times</p>
-    <button onclick ="sessionStorage.clear(this)">Reset</button>
+    <a href="/destroy_session"><button>Reset</button></a>
     
     <script type="text/javascript" src="{{ url_for('static', filename='javascript/counter.js') }}"></script>
 </body>
