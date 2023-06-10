@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/survey.css') }}">
+    <title>Survey</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dojo Survey</h1>
+        <form action="/users" method="post">
+            <div class="label-1">
+                <label for='name'>Name:</label>
+            </div>
+            <div class="text-1">
+                <input type='text' name='name' placeholder="John Doe">
+            </div>
+            <div class="label-2">
+                <label for='location'>Location:</label>
+            </div>
+            <div class="text-2">
+                <input type='text' name='location' placeholder="Seattle, WA">
+            </div>
+            <div class="label-3">
+                <label for="language">Favorite Language:</label>
+            </div>
+            <div class="text-3">
+                <select name="language" id="choice">
+                    <option value="Python">Python</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                </select>
+            </div>
+            <div class="label-4">
+                <label for="comments">Comments:</label>
+            </div>
+            <div class="text-4">
+                <textarea name="comment" id="box" cols="30" rows="10" placeholder="I love to code..."></textarea>
+            </div>
+            <input type='submit' value='Submit' class="submit">
+        </form>
+    </div>
+</body>
+
+</html>

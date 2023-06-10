@@ -30,9 +30,8 @@ def index():
 def create_user():
     print("Got Post Info")
     # Here we add two properties to session to store the name and email
-    # session['username'] = request.form['name']
-    # session['useremail'] = request.form['email']
-    session['usernum'] = request.form['num']
+    session['username'] = request.form['name']
+    session['useremail'] = request.form['email']
     return redirect('/show')
 
 # @app.route('/show')

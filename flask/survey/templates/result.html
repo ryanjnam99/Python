@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/result.css') }}">
+    <title>Results</title>
+</head>
+<body>
+    <div class="container">
+        <h3 class="name">{{session['username']}}</h3>
+        <h3>Dojo Location: {{session['userplace']}}</h3>
+        <h3>Favorite Language: {{session['userlanguage']}}</h3>
+        <h3>Comments: {{session['usercomment']}}</h3>
+        <a href="/"><button>Home</button></a>
+    </div>
+</body>
+</html>
