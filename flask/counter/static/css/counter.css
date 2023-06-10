@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    font-family: cursive;
+}
+
+p {
+    margin: 20px 0;
+}
+
+button {
+    padding: 5px;
+    font-family: cursive;
+
+}
+
+.click {
+    color:darkcyan;
+    background-color: gold;
+}
+
+.reset {
+    color: #691a69;
+    background-color: rgb(224, 191, 209);
+}
+
+.double {
+    color: red;
+    background: blue;
+}

@@ -13,6 +13,12 @@ def index():
 
     return render_template("counter.html")
 
+@app.route('/double')
+def multiply():
+    session['counter'] += 2
+    return render_template("counter.html")
+
+
 @app.route('/destroy_session')
 def clear():
     session.clear()
