@@ -19,12 +19,14 @@ def create_user():
     session['userlanguage'] = request.form['language']
     session['usercomment'] = request.form['comment']
     return redirect('/result')
+    # sends to the route of result
 
 @app.route("/result")
 def show_user():
     print("Showing the User Info From the Form")
     print(request.form)
     return render_template("result.html")
+    # prints out the result within the form
 
 if __name__ == "__main__":
     app.run(debug=True)
