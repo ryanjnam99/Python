@@ -38,8 +38,8 @@ def edit(user_id):
     return render_template("edit_user.html",user=one_user)
 
 
-@app.route("/user/update", methods=['POST'])
-def update():
+@app.route("/user/update/<int:user_id>", methods=['POST'])
+def update(user_id):
     User.update(request.form)
     return redirect('/users')
 

@@ -10,8 +10,8 @@
 </head>
 <body>
 
-    <form action="/user/update" method="post" class="col-6 mx-auto">
-        <h2 class="text-center">Edit {{user.name}}</h2>
+    <form action="/user/update/{{user.id}}" method="post" class="col-6 mx-auto">
+        <h2 class="text-center"> Edit {{user.name}}</h2>
         <input type="hidden" name="id" value={{user.id}}>
         <div class="form-group">
             <label for="name">First Name:</label>
