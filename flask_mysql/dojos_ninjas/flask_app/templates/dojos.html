@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Flask</title>
+</head>
+
+<body>
+    <h1>New Dojo</h1>
+    <form action='/dojos/create', method="post">
+        <label for='name'>Name:</label>
+        <input type='text' name='name'>
+        <input type='submit' value='Submit' class="submit">
+    </form>
+    <h1>All Dojos</h1>
+    <table>
+        <tbody>
+            {% for one_dojo in dojos%}
+            <tr>
+                <td><a href="/dojos/{{one_dojo.id}}">{{ one_dojo.name }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/ninjas">Create Ninja</a>
+</body>
+
+</html>

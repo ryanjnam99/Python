@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/new_ninja.css') }}">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>New Ninja</h1>
+        <form action="/ninja/create" method="post">
+            <div class="label-1">
+                <label for='first_name'>First Name:</label>
+            </div>
+            <div class="text-1">
+                <input type='text' name='first_name' placeholder="John">
+            </div>
+            <div class="label-2">
+                <label for='last_name'>Last Name:</label>
+            </div>
+            <div class="text-2">
+                <input type='text' name='last_name' placeholder="Doe">
+            </div>
+            <div class="label-3">
+                <label for="dojo">Dojo:</label>
+            </div>
+            <select name="dojo_id">
+                <!-- Need to create an option list for the user to select a restaurant. -->
+                <!-- Note that we are passing the restaurant id into the value -->
+                {% for dojo in dojos %}
+                <option value={{dojo.id}}>{{dojo.name}}</option>
+                {% endfor %}
+            </select>
+            <div class="label-4">
+                <label for='age'>Age:</label>
+            </div>
+            <div class="text-4">
+                <input type='text' name='age' placeholder="16">
+            </div>
+            <input type='submit' value='Submit' class="submit">
+        </form>
+    </div>
+</body>
+
+</html>
