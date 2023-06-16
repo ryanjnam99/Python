@@ -12,7 +12,14 @@
 <body>
     <div class="container">
         <h1>Dojo Survey</h1>
-        <form action="/users" method="post">
+        {% with messages = get_flashed_messages() %}     
+            {% if messages %}                            
+                {% for message in messages %}          
+                    <p>{{message}}</p>                   
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/create/user" method="post">
             <div class="label-1">
                 <label for='name'>Name:</label>
             </div>
