@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/registration.css') }}">
+    <title>New Recipe</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>New Recipe</h1>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="two">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/create/recipe" method="post">
+            <div class="label-1">
+                <label for='name'>Name:</label>
+            </div>
+            <div class="text-1">
+                <input type='text' name='name' placeholder="enchilada">
+            </div>
+            <div class="label-2">
+                <label for='description'>Description:</label>
+            </div>
+            <div class="text-2">
+                <textarea name="description" id="box" cols="20" rows="5" placeholder="It's simple really..."></textarea>
+            </div>
+            <div class="label-3">
+                <label for="time">Under 30?:</label>
+            </div>
+            <div class="text-3">
+                <input type="radio" name="time" value = "1">
+                <label for="time">Yes</label>
+                <input type="radio" name="time" value = "0">
+                <label for="time">No</label>
+            </div>
+            <div class="label-4">
+                <label for="instructions">Instructions:</label>
+            </div>
+            <div class="text-4">
+                <textarea name="instructions" id="box" cols="30" rows="10" placeholder="Start off with..."></textarea>
+            </div>
+            <input type='submit' value='Submit' class="submit">
+        </form>
+    </div>
+</body>
+
+</html>

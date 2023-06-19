@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/registration.css') }}">
+    <title>Registration</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Registration</h1>
+        {% with messages = get_flashed_messages() %}     
+            {% if messages %}                            
+                {% for message in messages %}          
+                    <p>{{message}}</p>                   
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/create/user" method="post">
+            <div class="label-1">
+                <label for='first_name'>First Name:</label>
+            </div>
+            <div class="text-1">
+                <input type='text' name='first_name' placeholder="John">
+            </div>
+            <div class="label-2">
+                <label for='last_name'>Last Name:</label>
+            </div>
+            <div class="text-2">
+                <input type='text' name='last_name' placeholder="Doe">
+            </div>
+            <div class="label-3">
+                <label for='email'>Email:</label>
+            </div>
+            <div class="text-3">
+                <input type='text' name='email' placeholder="person@gmail.com">
+            </div>
+            <div class="label-4">
+                <label for="password">Password:</label>
+            </div>
+            <div class="text-4">
+                <input type='password' name='password'>
+            </div>
+            <div class="label-5">
+                <label for="password">Confirm Password:</label>
+            </div>
+            <div class="text-5">
+                <input type="password" name='confirm_password'>
+            </div>
+            <input type='submit' value='Submit' class="submit">
+        </form>
+        <a href="/login/page"><button>Go to Login Page</button></a>
+    </div>
+</body>
+
+</html>
