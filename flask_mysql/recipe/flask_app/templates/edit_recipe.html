@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/registration.css') }}">
+    <title>Edit</title>
+</head>
+
+<body>
+    <form action="/recipe/update/{{recipe.id}}" method="post" class="col-6 mx-auto">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p class="two">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h2 class="text-center"> Edit {{recipe.name}}</h2>
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input type="text" name="name" class="form-control" value="{{recipe.name}}">
+        </div>
+        <div class="form-group">
+            <label for="description">Description: </label>
+            <textarea name="description" cols="30" rows="10">{{recipe.description}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="time">Under 30 minutes:</label>
+            <input type="radio" name="time" value="1" {% if recipe.time==1 %} checked {% endif %}>
+            <label for="time">Yes</label>
+            <input type="radio" name="time" value="0" {% if recipe.time==0 %} checked {% endif %}>
+            <label for="time">No</label>
+        </div>
+        <div class="form-group">
+            <label for="instructions">Instructions:</label>
+            <textarea name="instructions" cols="30" rows="10">{{recipe.instructions}}</textarea>
+        </div>
+        <input type="submit" value="Update Recipe" class="btn btn-success">
+    </form>
+</body>
+
+</html>

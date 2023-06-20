@@ -38,27 +38,27 @@ class Person:
             return False
         return cls(results[0])
 
-    @classmethod
-    def get_user_with_recipes(cls, data):
-        query = """SELECT * FROM persons LEFT JOIN 
-        recipes ON recipes.person_id = persons.id
-        WHERE persons.id = %(id)s"""
-        results = connectToMySQL("recipe_schema").query_db(query,data)
-        print(results)
-        one_user = cls(results[0])
-        for recipe_row in results:
-            recipe_data = {
-                "id": recipe_row['recipes.id'],
-                "name": recipe_row['name'],
-                "description": recipe_row['description'],
-                "time": recipe_row['time'],
-                "instructions": recipe_row['instructions'],
-                "created_at": recipe_row['created_at'],
-                "updated_at": recipe_row['updated_at'],
-                "person_id": recipe_row['person_id']
-            }
-            one_user.recipes.append(recipes.Recipe(recipe_data))
-        return one_user
+    # @classmethod
+    # def get_user_with_recipes(cls, data):
+    #     query = """SELECT * FROM persons LEFT JOIN 
+    #     recipes ON recipes.person_id = persons.id
+    #     WHERE persons.id = %(id)s"""
+    #     results = connectToMySQL("recipe_schema").query_db(query,data)
+    #     print(results)
+    #     one_user = cls(results[0])
+    #     for recipe_row in results:
+    #         recipe_data = {
+    #             "id": recipe_row['recipes.id'],
+    #             "name": recipe_row['name'],
+    #             "description": recipe_row['description'],
+    #             "time": recipe_row['time'],
+    #             "instructions": recipe_row['instructions'],
+    #             "created_at": recipe_row['created_at'],
+    #             "updated_at": recipe_row['updated_at'],
+    #             "person_id": recipe_row['person_id']
+    #         }
+    #         one_user.recipes.append(recipes.Recipe(recipe_data))
+    #     return one_user
         
     @staticmethod
     def validate_user(user):

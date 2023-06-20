@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/result.css') }}">
+    <title>Results</title>
+</head>
+<body>
+    <div class="container">
+        <h3 class="name">Recipe Name: {{recipe.name}}</h3>
+        <h3>Description: {{recipe.description}}</h3>
+        <h3>Under 30 Minutes: 
+            {% if recipe.time == 1 %}
+            <p>Yes</p>
+            {% else %}
+            <p>No</p>
+            {% endif %}</h3>
+        <h3>Instructions: {{recipe.instructions}}</h3>
+        <a href="/welcome"><button>Home</button></a>
+        <a href="/recipe/edit/{{recipe.id}}">edit</a>
+        <a href="/recipe/delete/{{recipe.id}}">delete</a>
+    </div>
+</body>
+</html>

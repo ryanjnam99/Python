@@ -57,7 +57,7 @@ def welcome():
     }
     one_user = Person.get_person(data)
     all_recipes = Recipe.get_all_recipes()
-    return render_template("welcome.html",user=one_user, chef=all_recipes)
+    return render_template("welcome.html",user=one_user, recipes=all_recipes)
 
 
 @app.route("/logout")

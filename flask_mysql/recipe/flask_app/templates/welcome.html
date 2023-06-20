@@ -16,16 +16,24 @@
             <th>Name</th>
             <th>Time</th>
             <th>Posted By</th>
+            <th>Date</th>
             <th>Actions</th>
         </tr>
-        <tr>
-            {% for a_chef in chef%}
-                <td>{{a_chef.name}}</td>
-                <td>{{a_chef.time}}</td>
-                <td>{{a_chef.person_id}}</td>
-                <td><a href="/{{a_chef.name}}">View Recipe</a></td>
+            {% for one_recipe in recipes%}
+                <tr>
+                    <td>{{one_recipe.name}}</td>
+                    {% if one_recipe.time == 1 %}
+                    <td>YES</td>
+                    {% else %}
+                    <td>NO</td>
+                    {% endif %}
+                    <td>{{one_recipe.chef.first_name}}</td>
+                    <td>{{one_recipe.created_at}}</td>
+                    <td>
+                        <a href="/recipe/{{one_recipe.id}}">View Recipe</a>
+                    </td>
+                </tr>
             {% endfor %}
-        </tr>
     </table>
     <a href="/logout"><button>Logout</button></a>
 </body>
