@@ -35,7 +35,7 @@ def login():
     data = {
         'email': request.form['email']
     }
-    user_in_db = Person.get_by_email(data)
+    user_in_db = Registration.get_by_email(data)
     if len(request.form['password']) < 4:
         flash("Invalid Email/Password")
         return redirect("/login/page")
@@ -49,10 +49,10 @@ def login():
     session['id'] = user_in_db.id
     return redirect("/welcome")
 
-@app.route("/welcome/<int:user_id>")
-def welcome(user_id):
+@app.route("/welcome")
+def welcome():
     data = {
-        'id': user_id
+        'id': session['id']
     }
     one_user = Registration.get_user(data)
     return render_template("welcome.html",user=one_user)
