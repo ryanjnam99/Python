@@ -4,8 +4,8 @@ import re
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
 
 
-class Registration:
-    DB = "registration_schema"
+class User:
+    DB = "crave_schema"
     def __init__(self, data):
         self.id = data['id']
         self.name = data['name']
@@ -16,20 +16,20 @@ class Registration:
 
     @classmethod
     def save(cls, data):
-        query = """INSERT into registrations (name, email, password) 
+        query = """INSERT into users (name, email, password) 
         VALUES (%(name)s, %(email)s, %(password)s);"""
-        return connectToMySQL("registration_schema").query_db(query,data)
+        return connectToMySQL("crave_schema").query_db(query,data)
 
     @classmethod
     def get_user(cls, data):
-        query = "SELECT * FROM registrations WHERE id = %(id)s;"
-        results = connectToMySQL("registration_schema").query_db(query,data)
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        results = connectToMySQL("crave_schema").query_db(query,data)
         return cls(results[0])
 
     @classmethod
     def get_by_email(cls,data):
-        query = "SELECT * FROM registrations WHERE email = %(email)s;"
-        results = connectToMySQL("registration_schema").query_db(query,data)
+        query = "SELECT * FROM users WHERE email = %(email)s;"
+        results = connectToMySQL("crave_schema").query_db(query,data)
         # Didn't find a matching user
         if len(results) < 1:
             return False
@@ -56,8 +56,8 @@ class Registration:
 
     @staticmethod
     def validate_email(user):
-        query = "SELECT * FROM registrations WHERE email = %(email)s;"
-        results = connectToMySQL("registration_schema").query_db(query,user)
+        query = "SELECT * FROM users WHERE email = %(email)s;"
+        results = connectToMySQL("crave_schema").query_db(query,user)
         print(results)
         is_valid = True
         if len(results) >= 1:
