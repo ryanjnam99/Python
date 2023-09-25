@@ -6,7 +6,7 @@ from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
 
-# our index route will handle rendering our form
+
 @app.route('/')
 def index():
     return render_template("registration.html")
@@ -30,6 +30,8 @@ def register():
 def go_to_login():
     return render_template("login.html")
 
+
+
 @app.route("/login/user", methods=['POST'])
 def login():
     data = {
@@ -51,6 +53,8 @@ def login():
 
 @app.route("/welcome")
 def welcome():
+    if 'id' not in session:
+        return redirect ('/')
     data = {
         'id': session['id']
     }

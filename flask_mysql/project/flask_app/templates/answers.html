@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/registration.css') }}">
+    <title>Criteria</title>
+</head>
+
+<body>
+    <div class="container_two">
+        <h1>Watcha Cravin</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <form onsubmit="getMapData(event)">
+            <div class="label-1">
+                <label for='scale'>Rate your level of Hunger:</label>
+            </div>
+            <select name="scale" id="hunger">
+                <option value="1">1 (Just for a nibble)</option>
+                <option value="2">2 (I could go for a bite)</option>
+                <option value="3">3 (Something modest)</option>
+                <option value="4">4 (Starved)</option>
+                <option value="5">5 (I could eat like an elephant)</option>
+            </select>
+            <div class="label-2">
+                <label for='crave'>What are you craving:</label>
+            </div>
+            <select name="crave" id="tastebuds">
+                <option value="sweet">Sweet</option>
+                <option value="spicy">Spicy</option>
+                <option value="savory">Savory</option>
+                <option value="sweet_and_savory">Sweet and Savory</option>
+                <option value="sour">Sour</option>
+                <option value="none">No preferences</option>
+            </select>
+            <div class="label-3">
+                <label for="price">Price Range:</label>
+            </div>
+            <select name="price" id="range">
+                <option value="1">$1-$10</option>
+                <option value="2">$10-$15</option>
+                <option value="3">$15-$20</option>
+                <option value="4">$20 and beyond</option>
+                <option value="0">No preference</option>
+            </select>
+            <div class="label-4">
+                <label for="cuisine">Do you have a cuisine preference:</label>
+            </div>
+            <select name="cuisine" id="ethnic">
+                <option value="classic">Classic American</option>
+                <option value="new_american">New American</option>
+                <option value="east_asian">East Asian</option>
+                <option value="mediterranean">Mediterranean</option>
+                <option value="hispanic">Hispanic</option>
+                <option value="south_asian">South Asian</option>
+                <option value="southeast">Southeast Asian</option>
+                <option value="none">No preferences</option>
+            </select>
+            <div class="label-5">
+                <label for="proximity">Enter your proximity:</label>
+            </div>
+            <input type="number" name="radius" id="radius">
+            <div class="final">
+                <input type='submit' value='Pick Restaurants'>
+            </div>
+        </form>
+        <a href="/login/page"><button>Go to Login Page</button></a>
+    </div>
+    <div class="container2">
+        <div id="googleList"></div>
+    </div>
+    <div>
+        <h1 id="mapName">Google Map</h1>
+        <div id="map" style="width:500px; height:400px;"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvRnqTEfA4_J54fue8MTPoL6nhoDuTfRA&libraries=places&callback=initMap"async defer></script>
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='javascript/script.js') }}"></script>
+</body>
+
+</html>

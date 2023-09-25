@@ -3,6 +3,13 @@
     margin: 0;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: url("../images/eating.jpeg");
+}
+
 .container {
     background-color: rgb(5, 5, 39);
     color: white;
@@ -23,6 +30,11 @@
 h3 {
     font-size:small;
     margin: 10px 0;
+}
+
+h1{
+    font-family: fantasy;
+    color: palegreen;
 }
 
 button {
